@@ -67,5 +67,13 @@ namespace TestProject1
             var actual = test.isSumOfCubes(input);
             Assert.AreEqual(expected, actual);
         }
+
+        [TestCase("ROT13 example.", "EBG13 rknzcyr.")]
+        public void ROT13Test(string input, string expected)
+        {
+            var test = new Challenge();
+            var actual = test.Rot13(input);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

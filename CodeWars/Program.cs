@@ -518,12 +518,41 @@ namespace TestCode
             }
             return answer;
         }
-
+        public string Rot13(string input)
+        {
+            var letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            var deciphered = "";
+            foreach (char letter in input)
+            {
+                var index = letters.IndexOf(letter.ToString());
+                if (index == -1)
+                {
+                    deciphered += letter.ToString();
+                }
+                else if (index < 13)
+                {
+                    deciphered += letters[index + 13];
+                }
+                else if (index < 26)
+                {
+                    deciphered += letters[index - 13];
+                }
+                else if (index < 39)
+                {
+                    deciphered += letters[index + 13];
+                }
+                else
+                {
+                    deciphered += letters[index - 13];
+                }
+            }
+            return deciphered;
+        }
         static void Main(string[] args)
         {
 
             var s = Console.ReadLine();
-            //Console.WriteLine(isSumOfCubes(s));
+            //Console.WriteLine(Rot13(s));
             Console.ReadKey();
         }
                 
