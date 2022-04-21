@@ -469,38 +469,65 @@ namespace TestCode
             }
         }
 
+        public String isSumOfCubes(String s)
+        {
+            var numberGroups = new List<int>();
+            var numberList = "0123456789";
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (i < s.Length - 2 && numberList.Contains(s[i].ToString()) && numberList.Contains(s[i + 1].ToString()) && numberList.Contains(s[i + 2].ToString()))
+                {
+                    numberGroups.Add(Convert.ToInt16(s.Substring(i, 3)));
+                    i+=2;
+                }
+                else if (i < s.Length - 1 && numberList.Contains(s[i].ToString()) && numberList.Contains(s[i + 1].ToString()))
+                {
+                    numberGroups.Add(Convert.ToInt16(s.Substring(i,2)));
+                    i++;
+                }
+                else if (numberList.Contains(s[i].ToString()))
+                {
+                    numberGroups.Add(Convert.ToInt16(s[i].ToString()));
+                }
+
+            }
+            double total = 0;
+            var answer = "";
+            foreach (int n in numberGroups)
+            {
+                var stringNum = n.ToString();
+                double numDigits = stringNum.Length;
+                double sum = 0;
+                foreach (char num in stringNum)
+                {
+                    sum += Math.Pow(Convert.ToUInt64(num.ToString()), 3);
+                }
+                if (Convert.ToUInt64(sum) == Convert.ToUInt64(n))
+                {
+                    total += sum;
+                    answer += stringNum + " ";
+                }
+            }
+            if (answer.Length > 0)
+            {
+                answer += total + " Lucky";
+            }
+            else
+            {
+                answer = "Unlucky";
+            }
+            return answer;
+        }
+
         static void Main(string[] args)
         {
 
-            var n = Console.ReadLine();    
-            var stringNum = n.ToString();
-            double numDigits = stringNum.Length;
-            double sum = 0;
-            foreach (char num in stringNum)
-            {
-                Console.WriteLine($"{Convert.ToUInt16(num.ToString())}^{numDigits}+");
+            var s = Console.ReadLine();
+            //Console.WriteLine(isSumOfCubes(s));
+            Console.ReadKey();
+        }
                 
-                sum += Math.Pow(Convert.ToUInt16(num.ToString()), numDigits);
-            }
-            Console.WriteLine(sum);   
-                
-                //int[] a = new int[] { 121, 144, 19, 161, 19, 144, 19, 11 };
-                //int[] b = new int[] { 11 * 11, 121 * 121, 144 * 144, 19 * 19, 161 * 161, 19 * 19, 144 * 144, 19 * 19 };
-                //var test1 = Test(a, b);
-                ////var test2 = Test(2000);
-                /////var test3 = Test(2000,2021);
-                //Console.WriteLine(test1);
-                ////Console.WriteLine(test2);
-                ////Console.WriteLine(test3);
-                //Console.ReadKey();
 
-            }
-
-        //public static bool Test(int[] test1, int[] test2)
-        //{
-        //    //return "";
-        //    return comp(test1, test2);
-        //}
     }
 }
 

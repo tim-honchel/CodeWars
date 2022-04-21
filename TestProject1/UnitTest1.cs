@@ -60,5 +60,12 @@ namespace TestProject1
             Assert.AreEqual(actual, expected);
         }
  
+        [TestCase("0 9026315 -827&()", "0 0 Lucky")]
+        public void IsSumOfCubesTest(string input, string expected)
+        {
+            var test = new Challenge();
+            var actual = test.isSumOfCubes(input);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
