@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "e1920424-e159-4a39-bc0e-b35fba27a66c": {
+      "ProjectGuid": "e1920424-e159-4a39-bc0e-b35fba27a66c",
+      "DisplayName": "CodeWars",
+      "ColorIndex": 0
+    },
+    "adedd607-3718-4d52-bcde-d8d8107e87ad": {
+      "ProjectGuid": "adedd607-3718-4d52-bcde-d8d8107e87ad",
+      "DisplayName": "CodeWars.Tests",
+      "ColorIndex": 1
+    },
+    "792ce9ba-c783-4a06-ba1d-1f93af5988df": {
+      "ProjectGuid": "792ce9ba-c783-4a06-ba1d-1f93af5988df",
+      "DisplayName": "TestProject1",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
